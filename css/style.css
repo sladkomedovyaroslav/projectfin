@@ -55,8 +55,6 @@ body{
 /* Главный контент */
 .main {
   padding: 60px 40px;
-  position: relative;
-  z-index: 1;
 }
 .section {
   background: Gainsboro; /* непрозрачный фон */
