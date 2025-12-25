@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ЖД билеты онлайн</title>
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/mobile.css">
 </head>
 <body>
 
@@ -14,9 +15,43 @@
   Ваш браузер не поддерживает видео.
 </video>
 
-<!-- Надпись поверх видео -->
-<div class="video-text">
-  <h1>Мы меняемся для вас</h1>
+<!-- Модальное окно (сразу после body, чтобы быть поверх всего) -->
+<div class="modal" id="modal">
+  <div class="modal__content">
+    <button class="modal__close" id="closeModal">×</button>
+    <h2>Оформление заказа</h2>
+    <form id="contactForm">
+      <input name="fio" placeholder="ФИО" required>
+      <input name="phone" placeholder="Телефон" required>
+
+      <select name="city" required>
+        <option value="">Город отправления</option>
+        <option>Москва</option>
+        <option>Краснодар</option>
+        <option>Санкт-Петербург</option>
+        <option>Екатеринбург</option>
+        <option>Владивосток</option>
+        <option>Сочи</option>
+        <option>Ростов</option>
+      </select>
+
+      <select name="to" required>
+        <option value="">Город назначения</option>
+        <option>Москва</option>
+        <option>Краснодар</option>
+        <option>Санкт-Петербург</option>
+        <option>Екатеринбург</option>
+        <option>Владивосток</option>
+        <option>Сочи</option>
+        <option>Ростов</option>
+      </select>
+      <input type="date" name="date" required>
+
+      <button class="btn" type="submit">Оформить заказ</button>
+      <button type="button" class="btn" id="printTicket">Скачать билет (PDF)</button>
+      <p class="form__status" id="formStatus"></p>
+    </form>
+  </div>
 </div>
 
 <header class="header">
@@ -34,66 +69,27 @@
 </header>
 
 <main class="main">
-  <!-- Единый серый блок для всех секций -->
-  <div class="gray-block">
-    <section class="section">
-      <h1>Железнодорожные билеты онлайн</h1>
-      <p>Официальный сервис поиска и оформления железнодорожных билетов</p>
-      <button class="btn" id="openModal">Найти билет</button>
-    </section>
+  <section class="section">
+    <h1>Железнодорожные билеты онлайн</h1>
+    <p>Официальный сервис поиска и оформления железнодорожных билетов</p>
+    <button class="btn" id="openModal">Найти билет</button>
+  </section>
 
-    <section class="section">
-      <h2>Контакты</h2>
-      <p>Телефон: 8 918 999 86 21</p>
-      <p>Email: sladkomedov.yaroslav10@gmail.com</p>
-    </section>
+  <section class="section">
+    <h2>Контакты</h2>
+    <p>Телефон: 8 918 999 86 21</p>
+    <p>Email: sladkomedov.yaroslav10@gmail.com</p>
+  </section>
 
-    <section class="section">
-      <h2>Вопросы и ответы</h2>
-      <ul>
-        <li><strong>Как купить билет?</strong> — Через форму заказа.</li>
-        <li><strong>Можно ли вернуть билет?</strong> — Да, по правилам перевозчика.</li>
-        <li><strong>Нужно ли регистрироваться?</strong> — Нет.</li>
-      </ul>
-    </section>
-  </div>
+  <section class="section">
+    <h2>Вопросы и ответы</h2>
+    <ul>
+      <li><strong>Как купить билет?</strong> — Через форму заказа.</li>
+      <li><strong>Можно ли вернуть билет?</strong> — Да, по правилам перевозчика.</li>
+      <li><strong>Нужно ли регистрироваться?</strong> — Нет.</li>
+    </ul>
+  </section>
 </main>
-
-<!-- Модальное окно -->
-<div class="modal" id="modal">
-  <div class="modal__content">
-    <button class="modal__close" id="closeModal">×</button>
-    <h2>Оформление заказа</h2>
-    <form id="contactForm">
-      <input name="fio" placeholder="ФИО" required>
-      <input name="phone" placeholder="Телефон" required>
-      <select name="city" required>
-        <option value="">Город отправления</option>
-        <option>Москва</option>
-        <option>Краснодар</option>
-        <option>Санкт-Петербург</option>
-        <option>Екатеринбург</option>
-        <option>Владивосток</option>
-        <option>Сочи</option>
-        <option>Ростов</option>
-      </select>
-      <select name="to" required>
-        <option value="">Город назначения</option>
-        <option>Москва</option>
-        <option>Краснодар</option>
-        <option>Санкт-Петербург</option>
-        <option>Екатеринбург</option>
-        <option>Владивосток</option>
-        <option>Сочи</option>
-        <option>Ростов</option>
-      </select>
-      <input type="date" name="date" required>
-      <button class="btn" type="submit">Оформить заказ</button>
-      <button type="button" class="btn" id="printTicket">Скачать билет (PDF)</button>
-      <p class="form__status" id="formStatus"></p>
-    </form>
-  </div>
-</div>
 
 <div id="ticket">
   <h1>Железнодорожный билет</h1>
